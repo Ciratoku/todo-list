@@ -15,20 +15,18 @@ const InputHeader = ({ addTodo }) => {
       <Button className="todo-btn" onClick={() => setModal(true)}>
         добавить
       </Button>
-      {modal && (
-        <ModalForm
-          modal={modal}
-          inputs={{
-            name: { value: inputName, setValue: setInputName },
-            desc: { value: "" },
-            date: { value: "" },
-            completed: { value: false },
-          }}
-          updateTodos={addTodo}
-          setModal={setModal}
-          btnName="Добавить"
-        />
-      )}
+      <ModalForm
+        modal={modal}
+        inputs={{
+          name: { value: inputName, setValue: setInputName },
+          desc: { value: "" },
+          date: { value: "" },
+          completed: { value: false },
+        }}
+        updateTodos={addTodo}
+        setModal={setModal}
+        btnName="Добавить"
+      />
     </div>
   );
 };
