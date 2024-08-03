@@ -90,3 +90,9 @@ h1 {
 .delete-icon {
   cursor: pointer;
 }
+
+.control {
+  float: right;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
