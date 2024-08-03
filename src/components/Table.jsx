@@ -48,7 +48,7 @@ const Table = ({ todos, setTodos, updateTodos }) => {
             type="radio"
             value="all"
             checked={radio == "all" ? true : false}
-            onClick={handleRadio}
+            onChange={handleRadio}
           />
           Все
         </p>
@@ -58,7 +58,7 @@ const Table = ({ todos, setTodos, updateTodos }) => {
             type="radio"
             value="compl"
             checked={radio == "compl" ? true : false}
-            onClick={handleRadio}
+            onChange={handleRadio}
           />
           Завершенные
         </p>
@@ -68,7 +68,7 @@ const Table = ({ todos, setTodos, updateTodos }) => {
             type="radio"
             value="notcompl"
             checked={radio == "notcompl" ? true : false}
-            onClick={handleRadio}
+            onChange={handleRadio}
           />
           Незавершенные
         </p>
