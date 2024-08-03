@@ -2,7 +2,7 @@ import React from "react";
 import Button from "./Button";
 const Todo = ({ todo, handleClick }) => {
   return (
-    <tr>
+    <tr style={{ backgroundColor: todo.completed ? "#57BD1B" : "#C7C7C7" }}>
       <td>{todo.name}</td>
       <td>{todo.date}</td>
       <td>{todo.desc}</td>
