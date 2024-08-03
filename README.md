@@ -1,3 +1,3 @@
 # todo-list
 
-Запуск - npm run dev
+[Открыть github pages](https://ciratoku.github.io/todo-list.github.io/)
