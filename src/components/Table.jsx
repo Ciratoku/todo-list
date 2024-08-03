@@ -1,10 +1,10 @@
 import "./Table.css";
-import Button from "./Button";
+import "./sortDiv.css";
 import Todo from "./Todo";
 import ModalForm from "./ModalForm";
 import { useState } from "react";
 
-const Table = ({ todos, updateTodo, deleteTodo }) => {
+const Table = ({ todos, setTodos, updateTodo, deleteTodo }) => {
   const [modal, setModal] = useState(false);
   const [currentTodo, setCurrentTodo] = useState({});
   const handleClick = (e) => {
@@ -20,8 +20,34 @@ const Table = ({ todos, updateTodo, deleteTodo }) => {
       deleteTodo(id);
     }
   };
-  return todos.length ? (
+  const handleRadio = (e) => {
+    const mode = e.target.value;
+    let tds = JSON.parse(localStorage.getItem("todos"));
+    if (mode == "compl") tds = tds.filter((todo) => todo.completed);
+    else if (mode == "notcompl") tds = tds.filter((todo) => !todo.completed);
+    setTodos(tds);
+  };
+  return (
     <>
+      <div className="sortCompl">
+        <p>
+          <input name="dzen" type="radio" value="all" onClick={handleRadio} />
+          Все
+        </p>
+        <p>
+          <input name="dzen" type="radio" value="compl" onClick={handleRadio} />
+          Завершенные
+        </p>
+        <p>
+          <input
+            name="dzen"
+            type="radio"
+            value="notcompl"
+            onClick={handleRadio}
+          />
+          Незавершенные
+        </p>
+      </div>
       <table className="table">
         <thead>
           <tr>
@@ -51,7 +77,7 @@ const Table = ({ todos, updateTodo, deleteTodo }) => {
         btnName="Изменить"
       />
     </>
-  ) : null;
+  );
 };
 
 export default Table;
