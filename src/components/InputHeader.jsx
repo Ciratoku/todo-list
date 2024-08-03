@@ -1,7 +1,5 @@
-import useInput from "../hooks/useInput";
 import Button from "./Button";
-import Modal from "./Modal";
-import TodoForm from "./TodoForm";
+import ModalForm from "./ModalForm";
 import { useState } from "react";
 const InputHeader = ({ addTodo }) => {
   const [inputName, setInputName] = useState("");
@@ -18,19 +16,18 @@ const InputHeader = ({ addTodo }) => {
         добавить
       </Button>
       {modal && (
-        <Modal open={modal}>
-          <TodoForm
-            inputs={{
-              name: { value: inputName, setValue: setInputName },
-              desc: { value: "" },
-              date: { value: "" },
-              completed: { value: false },
-            }}
-            updateTodos={addTodo}
-            setModal={setModal}
-            btnName="Добавить"
-          />
-        </Modal>
+        <ModalForm
+          modal={modal}
+          inputs={{
+            name: { value: inputName, setValue: setInputName },
+            desc: { value: "" },
+            date: { value: "" },
+            completed: { value: false },
+          }}
+          updateTodos={addTodo}
+          setModal={setModal}
+          btnName="Добавить"
+        />
       )}
     </div>
   );

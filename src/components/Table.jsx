@@ -10,7 +10,6 @@ const Table = ({ todos, updateTodo, deleteTodo }) => {
     if (mode == "edit") {
       // open modal window
     } else if (mode == "complete") {
-      console.log("tyt");
       todo.completed = true;
       updateTodo(todo);
     } else {
