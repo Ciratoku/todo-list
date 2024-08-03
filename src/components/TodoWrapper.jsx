@@ -5,7 +5,8 @@ import Table from "./Table";
 export default function TodoWrapper() {
   const [todos, setTodos] = useState([]);
   const addTodo = (todo) => {
-    const newTodos = [...todos, todo];
+    let newTodos = [...todos];
+    newTodos.unshift(todo);
     setTodos(newTodos);
     localStorage.setItem("todos", JSON.stringify(newTodos));
   };
