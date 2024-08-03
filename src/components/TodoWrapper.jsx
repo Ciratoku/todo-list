@@ -19,7 +19,7 @@ export default function TodoWrapper() {
   const deleteTodo = (id) => {
     let newTodos = [...todos];
     const i = newTodos.findIndex((todo) => todo.id == id);
-    newTodos.splice(i);
+    newTodos.splice(i, 1);
     setTodos(newTodos);
     localStorage.setItem("todos", JSON.stringify(newTodos));
   };
