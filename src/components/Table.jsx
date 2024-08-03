@@ -1,4 +1,5 @@
 import "./Table.css";
+import Button from "./Button";
 import Todo from "./Todo";
 import ModalForm from "./ModalForm";
 import { useState } from "react";
@@ -13,7 +14,7 @@ const Table = ({ todos, updateTodo, deleteTodo }) => {
       setCurrentTodo(todo);
       setModal(true);
     } else if (mode == "complete") {
-      todo.completed = true;
+      todo.completed = !todo.completed;
       updateTodo(todo);
     } else {
       deleteTodo(id);
