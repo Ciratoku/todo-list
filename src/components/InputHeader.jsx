@@ -18,6 +18,7 @@ const InputHeader = ({ addTodo }) => {
       <ModalForm
         modal={modal}
         inputs={{
+          id: { value: null },
           name: { value: inputName, setValue: setInputName },
           desc: { value: "" },
           date: { value: "" },

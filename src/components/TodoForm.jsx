@@ -6,7 +6,7 @@ const TodoForm = ({ inputs, updateTodos, setModal, btnName }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const todo = {
-      id: uuidv4(),
+      id: inputs.id.value || uuidv4(),
       name: e.target.elements.name.value,
       desc: e.target.elements.desc.value,
       date: e.target.elements.date.value,
@@ -14,7 +14,7 @@ const TodoForm = ({ inputs, updateTodos, setModal, btnName }) => {
     };
     updateTodos(todo);
     setModal(false);
-    inputs.name.setValue("");
+    !inputs.id.value && inputs.name.setValue(""); // means we are not editing => clear headInput
   };
   const inputName = useInput(inputs.name.value);
   const inputDesc = useInput(inputs.desc.value);
