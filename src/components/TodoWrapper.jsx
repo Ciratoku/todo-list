@@ -27,7 +27,11 @@ export default function TodoWrapper() {
   };
   useEffect(() => {
     const todos = JSON.parse(localStorage.getItem("todos"));
-    todos?.length && setTodos(todos);
+    if (todos) setTodos(todos);
+    else {
+      localStorage.setItem("todos", JSON.stringify([]));
+      setTodos([]);
+    }
   }, []);
   return (
     <div className="TodoWrapper">
