@@ -4,7 +4,7 @@ import Todo from "./Todo";
 import ModalForm from "./ModalForm";
 import { useState } from "react";
 
-const Table = ({ todos, setTodos, updateTodo, deleteTodo }) => {
+const Table = ({ todos, setTodos, updateTodos }) => {
   const [modal, setModal] = useState(false);
   const [currentTodo, setCurrentTodo] = useState({});
   const handleClick = (e) => {
@@ -15,9 +15,9 @@ const Table = ({ todos, setTodos, updateTodo, deleteTodo }) => {
       setModal(true);
     } else if (mode == "complete") {
       todo.completed = !todo.completed;
-      updateTodo(todo);
+      updateTodos(todo, "e");
     } else {
-      deleteTodo(id);
+      updateTodos(todo, "d");
     }
   };
   const handleRadio = (e) => {
@@ -72,7 +72,7 @@ const Table = ({ todos, setTodos, updateTodo, deleteTodo }) => {
           date: { value: currentTodo.date },
           completed: { value: currentTodo.completed },
         }}
-        updateTodos={updateTodo}
+        updateTodos={updateTodos}
         setModal={setModal}
         btnName="Изменить"
       />

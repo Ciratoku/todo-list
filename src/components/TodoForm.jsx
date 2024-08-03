@@ -12,7 +12,7 @@ const TodoForm = ({ inputs, updateTodos, setModal, btnName }) => {
       date: e.target.elements.date.value,
       completed: inputs.completed.value,
     };
-    updateTodos(todo);
+    updateTodos(todo, btnName == "Добавить" ? "a" : "e");
     setModal(false);
     !inputs.id.value && inputs.name.setValue(""); // means we are not editing => clear headInput
   };
